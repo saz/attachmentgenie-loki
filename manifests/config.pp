@@ -19,7 +19,7 @@ class loki::config {
   }
   -> concat { $config_file:
     ensure => present,
-    notify => $loki::service::service_notify,
+    notify => Service['loki'],
   }
 
   concat::fragment { 'loki_config_header':
